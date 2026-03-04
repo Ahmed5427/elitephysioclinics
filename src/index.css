@@ -1,0 +1,159 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: #0a1f13;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0a1f13; }
+::-webkit-scrollbar-thumb { background: rgba(201, 160, 66, 0.35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(201, 160, 66, 0.6); }
+
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Keyframes */
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.6; }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Nav hover link */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c9a042;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Service card hover */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.service-card:hover .service-arrow {
+  opacity: 1 !important;
+  transform: translateX(4px);
+}
+.service-arrow {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Gold shimmer text */
+.shimmer-text {
+  background: linear-gradient(90deg, #c9a042 0%, #e8c96d 25%, #c9a042 50%, #faf6ef 75%, #c9a042 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Input focus styles */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #c9a042 !important;
+  box-shadow: 0 0 0 1px rgba(201, 160, 66, 0.2);
+}
+
+/* Button hover */
+.btn-primary:hover {
+  background: #e8c96d !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(201, 160, 66, 0.3);
+}
+.btn-primary {
+  transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(250, 246, 239, 0.08) !important;
+  border-color: rgba(250, 246, 239, 0.6) !important;
+}
+.btn-ghost {
+  transition: all 0.25s ease;
+}
+
+/* ── Mobile overrides ── */
+@media (max-width: 767px) {
+  /* Prevent Remotion player from causing horizontal overflow on mobile */
+  section { overflow-x: hidden; }
+
+  /* Make inputs/textareas/selects larger touch targets */
+  input, textarea, select {
+    font-size: 16px !important; /* prevents iOS auto-zoom */
+    border-radius: 0;
+  }
+
+  /* Ensure service cards don't transform on touch (no hover state) */
+  .service-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Hamburger nav-link underline not needed on mobile */
+  .nav-link::after { display: none; }
+
+  /* Full-width buttons on mobile */
+  .btn-primary, .btn-ghost {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens — tighten up further */
+  .shimmer-text { font-size: 56px !important; }
+}
