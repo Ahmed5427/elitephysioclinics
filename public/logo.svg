@@ -1,0 +1,40 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer ring (light blue-gray) -->
+  <circle cx="100" cy="100" r="98" fill="#d4e5f5"/>
+  <!-- Dark navy inner circle -->
+  <circle cx="100" cy="100" r="82" fill="#163060"/>
+
+  <!-- Body torso silhouette (white, back view) -->
+  <path d="M100,40 C114,38 132,46 138,58 C143,68 141,82 138,96 C135,108 130,118 128,130 C127,144 127,158 126,165 L74,165 C73,158 73,144 72,130 C70,118 65,108 62,96 C59,82 57,68 62,58 C68,46 86,38 100,40Z"
+        fill="#dce8f5"/>
+
+  <!-- Left blue accent wing -->
+  <path d="M66,46 C52,58 44,75 48,92 C50,102 57,110 60,120 L67,102 C62,92 60,78 62,66 C64,56 67,50 70,46Z"
+        fill="#2d78c8"/>
+  <!-- Left accent highlight -->
+  <path d="M70,46 C58,58 52,74 56,90 C58,99 63,107 65,116 L70,100 C66,90 65,77 67,65 C69,56 72,50 74,46Z"
+        fill="#6ab0e8" opacity="0.65"/>
+
+  <!-- Right blue accent wing -->
+  <path d="M134,46 C148,58 156,75 152,92 C150,102 143,110 140,120 L133,102 C138,92 140,78 138,66 C136,56 133,50 130,46Z"
+        fill="#2d78c8"/>
+  <!-- Right accent highlight -->
+  <path d="M130,46 C142,58 148,74 144,90 C142,99 137,107 135,116 L130,100 C134,90 135,77 133,65 C131,56 128,50 126,46Z"
+        fill="#6ab0e8" opacity="0.65"/>
+
+  <!-- Spine vertebrae dots (varying sizes, S-curve) -->
+  <circle cx="101" cy="50"  r="2.2" fill="#1a55be"/>
+  <circle cx="101" cy="57"  r="3"   fill="#1850b8"/>
+  <circle cx="101" cy="65"  r="4.2" fill="#1545b0"/>
+  <circle cx="101" cy="74"  r="5.8" fill="#1240a8"/>
+  <circle cx="101" cy="84"  r="7"   fill="#0f38a0"/>
+  <circle cx="101" cy="95"  r="7.8" fill="#0d35a0"/>
+  <circle cx="101" cy="106" r="7.8" fill="#0d35a0"/>
+  <circle cx="100" cy="117" r="6.5" fill="#1040a8"/>
+  <circle cx="100" cy="127" r="5"   fill="#1545b0"/>
+  <circle cx="100" cy="136" r="3.8" fill="#1850b8"/>
+  <circle cx="100" cy="144" r="2.8" fill="#1a55be"/>
+  <circle cx="100" cy="151" r="2"   fill="#2060c8"/>
+  <circle cx="100" cy="157" r="1.5" fill="#2868d0"/>
+  <circle cx="100" cy="162" r="1.1" fill="#3070d8"/>
+</svg>

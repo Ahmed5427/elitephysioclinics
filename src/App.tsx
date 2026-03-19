@@ -115,11 +115,7 @@ const NavBar = () => {
       >
         {/* Logo */}
         <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 28, height: 28, position: 'relative', flexShrink: 0 }}>
-            <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: '100%', background: '#2478d4', transform: 'translateX(-50%)' }} />
-            <div style={{ position: 'absolute', top: '50%', left: 0, height: 1, width: '100%', background: '#2478d4', transform: 'translateY(-50%)' }} />
-            <div style={{ position: 'absolute', inset: 6, border: '1px solid rgba(36,120,212,0.4)', borderRadius: '50%', animation: 'pulse-ring 3s ease-in-out infinite' }} />
-          </div>
+          <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: 44, height: 44, flexShrink: 0 }} />
           <div>
             <div style={{ fontSize: isMobile ? 13 : 15, fontWeight: 600, color: '#f0f5fb', letterSpacing: '0.14em', fontFamily: 'Cormorant Garamond, serif', lineHeight: 1.1 }}>
               ELITE PHYSIO
@@ -553,11 +549,7 @@ const PhilosophySection = () => {
       >
         {/* Icon */}
         <div style={{ flexShrink: 0 }}>
-          <div style={{ width: isMobile ? 44 : 64, height: isMobile ? 44 : 64, position: 'relative' }}>
-            <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: '100%', background: '#2478d4', transform: 'translateX(-50%)' }} />
-            <div style={{ position: 'absolute', top: '50%', left: 0, height: 1, width: '100%', background: '#2478d4', transform: 'translateY(-50%)' }} />
-            <div style={{ position: 'absolute', inset: 10, border: '1px solid rgba(36,120,212,0.35)', borderRadius: '50%' }} />
-          </div>
+          <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: isMobile ? 52 : 72, height: isMobile ? 52 : 72, opacity: 0.9 }} />
         </div>
         <blockquote style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: isMobile ? 20 : 'clamp(22px, 3vw, 34px)', fontWeight: 300, fontStyle: 'italic', color: 'rgba(240,245,251,0.88)', lineHeight: 1.55, margin: 0 }}>
           "We believe outstanding physiotherapy is built on clinical precision, genuine human connection, and a relentless commitment to getting you back to what you love."
@@ -608,18 +600,7 @@ const AboutSection = () => {
         >
           <div style={{ aspectRatio: '3/4', background: 'linear-gradient(145deg, #1a3d6b 0%, #0d1e3c 100%)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-              <div style={{ position: 'relative', width: 80, height: 80, animation: 'rotate-slow 20s linear infinite' }}>
-                <svg width={80} height={80} viewBox="0 0 80 80">
-                  <circle cx={40} cy={40} r={38} fill="none" stroke="rgba(36,120,212,0.2)" strokeWidth={0.5} strokeDasharray="3 6" />
-                  <circle cx={40} cy={40} r={26} fill="none" stroke="rgba(36,120,212,0.3)" strokeWidth={0.5} />
-                </svg>
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ width: 24, height: 24, position: 'relative' }}>
-                    <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: '100%', background: '#2478d4', transform: 'translateX(-50%)' }} />
-                    <div style={{ position: 'absolute', top: '50%', left: 0, height: 1, width: '100%', background: '#2478d4', transform: 'translateY(-50%)' }} />
-                  </div>
-                </div>
-              </div>
+              <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: 100, height: 100, opacity: 0.85 }} />
               <div style={{ textAlign: 'center' }}>
                 <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontWeight: 300, color: 'rgba(36,120,212,0.4)', letterSpacing: '0.12em' }}>Dr. Wafaa</div>
                 <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontWeight: 300, color: 'rgba(36,120,212,0.4)', letterSpacing: '0.12em', fontStyle: 'italic' }}>Ibrahim</div>
@@ -976,10 +957,7 @@ const Footer = () => {
         textAlign: isMobile ? 'center' : 'left',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ width: 18, height: 18, position: 'relative', opacity: 0.6 }}>
-            <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: '100%', background: '#2478d4', transform: 'translateX(-50%)' }} />
-            <div style={{ position: 'absolute', top: '50%', left: 0, height: 1, width: '100%', background: '#2478d4', transform: 'translateY(-50%)' }} />
-          </div>
+          <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: 28, height: 28, opacity: 0.7 }} />
           <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 13, color: 'rgba(240,245,251,0.35)', letterSpacing: '0.12em' }}>
             ELITE PHYSIO CLINICS
           </span>
