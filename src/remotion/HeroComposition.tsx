@@ -14,7 +14,7 @@ const Particle: React.FC<{ seed: number }> = ({ seed }) => {
   const x = ((seed * 137.508) % 1) * 100;
   const speed = 0.04 + ((seed * 73.1) % 1) * 0.08;
   const size = 1.5 + ((seed * 31.7) % 1) * 4;
-  const isGold = seed % 3 === 0;
+  const isBlue = seed % 3 === 0;
   const delay = (seed * 17) % 80;
 
   const yBase = ((seed * 23.4) % 1) * 100;
@@ -23,7 +23,7 @@ const Particle: React.FC<{ seed: number }> = ({ seed }) => {
   const opacity = interpolate(
     frame,
     [delay, delay + 25, 155, 180],
-    [0, isGold ? 0.55 : 0.35, isGold ? 0.55 : 0.35, 0],
+    [0, isBlue ? 0.55 : 0.35, isBlue ? 0.55 : 0.35, 0],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
@@ -36,9 +36,9 @@ const Particle: React.FC<{ seed: number }> = ({ seed }) => {
         width: size,
         height: size,
         borderRadius: '50%',
-        background: isGold ? '#c9a042' : '#74c69d',
+        background: isBlue ? '#2478d4' : '#6ab0d9',
         opacity,
-        boxShadow: `0 0 ${size * 3}px ${isGold ? 'rgba(201,160,66,0.5)' : 'rgba(116,198,157,0.4)'}`,
+        boxShadow: `0 0 ${size * 3}px ${isBlue ? 'rgba(36,120,212,0.5)' : 'rgba(106,176,217,0.4)'}`,
       }}
     />
   );
@@ -67,7 +67,7 @@ const AuroraBand: React.FC<{ seed: number; color: string }> = ({ seed, color }) 
   );
 };
 
-// Gold sweep line
+// Blue sweep line
 const SweepLine: React.FC<{ startFrame: number; fromRight?: boolean; top: string; opacity?: number }> = ({
   startFrame,
   fromRight,
@@ -94,8 +94,8 @@ const SweepLine: React.FC<{ startFrame: number; fromRight?: boolean; top: string
         width: `${progress * 100}%`,
         height: 1,
         background: fromRight
-          ? 'linear-gradient(to left, transparent 0%, rgba(201,160,66,0.8) 60%, rgba(201,160,66,0.3) 100%)'
-          : 'linear-gradient(to right, transparent 0%, rgba(201,160,66,0.8) 60%, rgba(201,160,66,0.3) 100%)',
+          ? 'linear-gradient(to left, transparent 0%, rgba(36,120,212,0.8) 60%, rgba(36,120,212,0.3) 100%)'
+          : 'linear-gradient(to right, transparent 0%, rgba(36,120,212,0.8) 60%, rgba(36,120,212,0.3) 100%)',
         opacity: fadeOut * opacity,
       }}
     />
@@ -126,7 +126,7 @@ const DecorRing: React.FC<{ size: number; x: string; y: string; delay: number }>
           cy={size / 2}
           r={size / 2 - 1}
           fill="none"
-          stroke="#c9a042"
+          stroke="#2478d4"
           strokeWidth="0.5"
           strokeDasharray="4 8"
         />
@@ -135,7 +135,7 @@ const DecorRing: React.FC<{ size: number; x: string; y: string; delay: number }>
           cy={size / 2}
           r={size / 3}
           fill="none"
-          stroke="rgba(201,160,66,0.4)"
+          stroke="rgba(36,120,212,0.4)"
           strokeWidth="0.5"
         />
       </svg>
@@ -161,8 +161,8 @@ const MedCross: React.FC<{ x: string; y: string; size: number; delay: number }> 
         opacity: pulse,
       }}
     >
-      <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: '100%', background: '#c9a042', transform: 'translateX(-50%)' }} />
-      <div style={{ position: 'absolute', top: '50%', left: 0, height: 1, width: '100%', background: '#c9a042', transform: 'translateY(-50%)' }} />
+      <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: '100%', background: '#2478d4', transform: 'translateX(-50%)' }} />
+      <div style={{ position: 'absolute', top: '50%', left: 0, height: 1, width: '100%', background: '#2478d4', transform: 'translateY(-50%)' }} />
     </div>
   );
 };
@@ -183,15 +183,15 @@ export const HeroComposition: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
-        background: `linear-gradient(${gradAngle}deg, #060f08 0%, #0d2518 35%, #1a3d2b 65%, #0a1f13 100%)`,
+        background: `linear-gradient(${gradAngle}deg, #06091a 0%, #0d2547 35%, #1a3d6b 65%, #0d1e3c 100%)`,
         opacity: fadeIn,
         overflow: 'hidden',
       }}
     >
       {/* Aurora bands */}
-      <AuroraBand seed={0.15} color="rgba(45,106,79,0.6)" />
-      <AuroraBand seed={0.48} color="rgba(116,198,157,0.3)" />
-      <AuroraBand seed={0.75} color="rgba(45,106,79,0.5)" />
+      <AuroraBand seed={0.15} color="rgba(36,80,160,0.6)" />
+      <AuroraBand seed={0.48} color="rgba(91,163,232,0.3)" />
+      <AuroraBand seed={0.75} color="rgba(36,80,160,0.5)" />
 
       {/* Large radial glow center */}
       <div
@@ -203,7 +203,7 @@ export const HeroComposition: React.FC = () => {
           width: 800,
           height: 800,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(26,61,43,0.4) 0%, rgba(10,31,19,0) 70%)',
+          background: 'radial-gradient(circle, rgba(26,61,107,0.4) 0%, rgba(13,30,60,0) 70%)',
           opacity: pulseOpacity * 5,
         }}
       />
@@ -250,10 +250,10 @@ export const HeroComposition: React.FC = () => {
               right: corner.right,
               width: 50,
               height: 50,
-              borderTop: corner.bTop ? '1px solid rgba(201,160,66,0.45)' : 'none',
-              borderBottom: corner.bBottom ? '1px solid rgba(201,160,66,0.45)' : 'none',
-              borderLeft: corner.bLeft ? '1px solid rgba(201,160,66,0.45)' : 'none',
-              borderRight: corner.bRight ? '1px solid rgba(201,160,66,0.45)' : 'none',
+              borderTop: corner.bTop ? '1px solid rgba(36,120,212,0.45)' : 'none',
+              borderBottom: corner.bBottom ? '1px solid rgba(36,120,212,0.45)' : 'none',
+              borderLeft: corner.bLeft ? '1px solid rgba(36,120,212,0.45)' : 'none',
+              borderRight: corner.bRight ? '1px solid rgba(36,120,212,0.45)' : 'none',
               opacity,
             }}
           />
@@ -270,7 +270,7 @@ export const HeroComposition: React.FC = () => {
             right: 0,
             top: `${top}%`,
             height: 1,
-            background: 'rgba(201,160,66,0.04)',
+            background: 'rgba(36,120,212,0.04)',
           }}
         />
       ))}
