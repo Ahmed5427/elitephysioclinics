@@ -6,6 +6,7 @@ import {
   Phone, Mail, MapPin, Clock, ChevronDown, ArrowRight,
   CheckCircle, Menu, X, Star, Shield, Heart, Award,
 } from 'lucide-react';
+import { BookingForm } from './components/booking/BookingForm';
 
 // ─────────────────────────────────────────────
 // DATA
@@ -29,7 +30,17 @@ const STATS = [
   { value: 100, suffix: '%', label: 'Personalised Care', sub: 'Tailored to every patient' },
 ];
 
-const INSURANCE = ['AXA Health', 'Aviva', 'Vitality', 'WPA', 'IPRS', 'Cigna', 'HCML', 'TTN', 'SM'];
+const INSURANCE = [
+  { name: 'AXA Health', logo: '/insurance/AXA_Health.webp' },
+  { name: 'Aviva', logo: '/insurance/Aviva.svg' },
+  { name: 'Vitality', logo: '/insurance/Vitality.svg' },
+  { name: 'WPA', logo: '/insurance/WPA.svg' },
+  { name: 'IPRS Health', logo: '/insurance/IPRS_Health.png' },
+  { name: 'Cigna', logo: '/insurance/Cigna.svg' },
+  { name: 'HCML', logo: '/insurance/HCML.png' },
+  { name: 'Treatment Network', logo: '/insurance/Treatment_Network.svg' },
+  { name: 'Speed Medical', logo: '/insurance/Speed_Medical.png' },
+];
 
 const CREDENTIALS = [
   { label: 'Doctor of Physiotherapy (DPT)', highlight: true },
@@ -115,7 +126,7 @@ const NavBar = () => {
       >
         {/* Logo */}
         <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: 44, height: 44, flexShrink: 0 }} />
+          <img src="/logo.png" alt="Elite Physio Clinics" style={{ width: 44, height: 44, flexShrink: 0 }} />
           <div>
             <div style={{ fontSize: isMobile ? 13 : 15, fontWeight: 600, color: '#f0f5fb', letterSpacing: '0.14em', fontFamily: 'Cormorant Garamond, serif', lineHeight: 1.1 }}>
               ELITE PHYSIO
@@ -136,7 +147,7 @@ const NavBar = () => {
                 style={{ fontSize: 12, color: 'rgba(240,245,251,0.75)', textDecoration: 'none', letterSpacing: '0.18em', textTransform: 'uppercase', fontFamily: 'Outfit, sans-serif', fontWeight: 500 }}
               >{link}</a>
             ))}
-            <a href="tel:+443335779553" className="btn-primary"
+            <a href="#contact" className="btn-primary"
               style={{ fontSize: 11, color: '#0d1e3c', background: '#2478d4', padding: '11px 26px', borderRadius: 2, textDecoration: 'none', letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
             >Book Now</a>
           </div>
@@ -191,7 +202,8 @@ const NavBar = () => {
             <div style={{ width: 40, height: 1, background: 'rgba(36,120,212,0.3)', margin: '20px 0' }} />
 
             <motion.a
-              href="tel:+443335779553"
+              href="#contact"
+              onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -353,7 +365,7 @@ const HeroSection = () => {
             maxWidth: isMobile ? 300 : 'none',
           }}
         >
-          <a href="tel:+443335779553" className="btn-primary"
+          <a href="#contact" className="btn-primary"
             style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 9,
               background: '#2478d4', color: '#0d1e3c',
@@ -364,7 +376,7 @@ const HeroSection = () => {
               fontFamily: 'Outfit, sans-serif', fontWeight: 700,
             }}
           >
-            <Phone size={14} /> Call Us Now
+            <Phone size={14} /> Book Now
           </a>
           <a href="#services" className="btn-ghost"
             style={{
@@ -471,8 +483,32 @@ const ServicesSection = () => {
   const py = isMobile ? '64px' : '120px';
 
   return (
-    <section id="services" style={{ background: '#e8f0fa', padding: `${py} ${px}` }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto' }}>
+    <section id="services" style={{ position: 'relative', overflow: 'hidden', padding: `${py} ${px}` }}>
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+        }}
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+      {/* Dark overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(180deg, rgba(6,12,28,0.82) 0%, rgba(13,30,60,0.72) 50%, rgba(6,12,28,0.85) 100%)',
+        zIndex: 1,
+      }} />
+      <div style={{ maxWidth: 1240, margin: '0 auto', position: 'relative', zIndex: 2 }}>
 
         {/* Header */}
         <motion.div
@@ -487,14 +523,14 @@ const ServicesSection = () => {
           }}
         >
           <div>
-            <div style={{ fontSize: 11, color: '#2478d4', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Outfit, sans-serif', fontWeight: 600, marginBottom: 14 }}>
+            <div style={{ fontSize: 11, color: 'rgba(240,245,251,0.7)', letterSpacing: '0.35em', textTransform: 'uppercase', fontFamily: 'Outfit, sans-serif', fontWeight: 600, marginBottom: 14 }}>
               ── SPECIALIST CARE
             </div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: isMobile ? 48 : 'clamp(48px, 6vw, 72px)', fontWeight: 300, color: '#0d1e3c', lineHeight: 1.05, margin: 0 }}>
-              Conditions<br /><em style={{ fontStyle: 'italic', color: '#1a3d6b' }}>We Treat</em>
+            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: isMobile ? 48 : 'clamp(48px, 6vw, 72px)', fontWeight: 300, color: '#ffffff', lineHeight: 1.05, margin: 0 }}>
+              Conditions<br /><em style={{ fontStyle: 'italic', color: '#5ba3e8' }}>We Treat</em>
             </h2>
           </div>
-          <div style={{ maxWidth: isMobile ? '100%' : 360, fontSize: 14, lineHeight: 1.85, color: '#3d5a8a', fontFamily: 'Outfit, sans-serif', fontWeight: 300 }}>
+          <div style={{ maxWidth: isMobile ? '100%' : 360, fontSize: 14, lineHeight: 1.85, color: 'rgba(240,245,251,0.7)', fontFamily: 'Outfit, sans-serif', fontWeight: 300 }}>
             Evidence-based physiotherapy for a comprehensive range of musculoskeletal and neurological conditions, delivered with genuine personal care.
           </div>
         </motion.div>
@@ -509,15 +545,15 @@ const ServicesSection = () => {
               transition={{ duration: 0.55, delay: isMobile ? 0 : i * 0.06 }}
               viewport={{ once: true }}
               className="service-card"
-              style={{ padding: isMobile ? '28px 24px' : '40px 36px', background: '#0d1e3c', borderLeft: '2px solid rgba(36,120,212,0.15)', position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
+              style={{ padding: isMobile ? '28px 24px' : '40px 36px', background: 'rgba(6,12,28,0.55)', backdropFilter: 'blur(12px)', borderLeft: '2px solid rgba(91,163,232,0.25)', border: '1px solid rgba(91,163,232,0.1)', position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
             >
-              <div style={{ fontSize: 20, color: 'rgba(36,120,212,0.5)', marginBottom: 14 }}>{s.icon}</div>
-              <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: isMobile ? 19 : 21, fontWeight: 500, color: '#f0f5fb', margin: '0 0 10px', lineHeight: 1.2 }}>{s.title}</h3>
-              <p style={{ fontSize: 13, color: 'rgba(240,245,251,0.5)', lineHeight: 1.75, margin: 0, fontFamily: 'Outfit, sans-serif', fontWeight: 300 }}>{s.desc}</p>
+              <div style={{ fontSize: 20, color: 'rgba(91,163,232,0.7)', marginBottom: 14 }}>{s.icon}</div>
+              <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: isMobile ? 19 : 21, fontWeight: 500, color: '#ffffff', margin: '0 0 10px', lineHeight: 1.2 }}>{s.title}</h3>
+              <p style={{ fontSize: 13, color: 'rgba(240,245,251,0.65)', lineHeight: 1.75, margin: 0, fontFamily: 'Outfit, sans-serif', fontWeight: 300 }}>{s.desc}</p>
               <div className="service-arrow" style={{ position: 'absolute', bottom: 20, right: 24, opacity: 0 }}>
-                <ArrowRight size={13} color="#2478d4" />
+                <ArrowRight size={13} color="#5ba3e8" />
               </div>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, #2478d4, rgba(36,120,212,0))' }} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(90deg, #5ba3e8, rgba(91,163,232,0))' }} />
             </motion.div>
           ))}
         </div>
@@ -549,7 +585,7 @@ const PhilosophySection = () => {
       >
         {/* Icon */}
         <div style={{ flexShrink: 0 }}>
-          <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: isMobile ? 52 : 72, height: isMobile ? 52 : 72, opacity: 0.9 }} />
+          <img src="/logo.png" alt="Elite Physio Clinics" style={{ width: isMobile ? 52 : 72, height: isMobile ? 52 : 72, opacity: 0.9 }} />
         </div>
         <blockquote style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: isMobile ? 20 : 'clamp(22px, 3vw, 34px)', fontWeight: 300, fontStyle: 'italic', color: 'rgba(240,245,251,0.88)', lineHeight: 1.55, margin: 0 }}>
           "We believe outstanding physiotherapy is built on clinical precision, genuine human connection, and a relentless commitment to getting you back to what you love."
@@ -598,14 +634,8 @@ const AboutSection = () => {
           viewport={{ once: true }}
           style={{ position: 'relative', maxWidth: isMobile ? 320 : 'none', margin: isMobile ? '0 auto' : 0 }}
         >
-          <div style={{ aspectRatio: '3/4', background: 'linear-gradient(145deg, #1a3d6b 0%, #0d1e3c 100%)', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-              <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: 100, height: 100, opacity: 0.85 }} />
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontWeight: 300, color: 'rgba(36,120,212,0.4)', letterSpacing: '0.12em' }}>Dr. Wafaa</div>
-                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontWeight: 300, color: 'rgba(36,120,212,0.4)', letterSpacing: '0.12em', fontStyle: 'italic' }}>Ibrahim</div>
-              </div>
-            </div>
+          <div style={{ aspectRatio: '3/4', position: 'relative', overflow: 'hidden' }}>
+            <img src="/dr-wafaa.webp" alt="Dr. Wafaa Ibrahim" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
             <div style={{ position: 'absolute', top: -1, right: -1, width: 44, height: 44, borderTop: '2px solid #2478d4', borderRight: '2px solid #2478d4' }} />
             <div style={{ position: 'absolute', bottom: -1, left: -1, width: 44, height: 44, borderBottom: '2px solid #2478d4', borderLeft: '2px solid #2478d4' }} />
           </div>
@@ -664,7 +694,7 @@ const AboutSection = () => {
             ))}
           </div>
 
-          <a href="tel:+443335779553" className="btn-primary"
+          <a href="#contact" className="btn-primary"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 10,
               background: '#0d1e3c', color: '#f0f5fb',
@@ -772,25 +802,49 @@ const InsuranceSection = () => {
             Accepted Insurance Partners
           </h2>
         </motion.div>
-        <div style={{ width: '100%', height: 1, background: 'linear-gradient(90deg, transparent, rgba(36,120,212,0.3) 20%, rgba(36,120,212,0.3) 80%, transparent)', marginBottom: 40 }} />
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center' }}>
+        <div style={{ width: '100%', height: 1, background: 'linear-gradient(90deg, transparent, rgba(36,120,212,0.3) 20%, rgba(36,120,212,0.3) 80%, transparent)', marginBottom: 48 }} />
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+          gap: isMobile ? 12 : 16,
+          maxWidth: 900,
+          margin: '0 auto',
+        }}>
           {INSURANCE.map((ins, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.88 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: isMobile ? 0 : i * 0.06, duration: 0.45 }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: isMobile ? 0 : i * 0.05, duration: 0.5 }}
               viewport={{ once: true }}
-              whileHover={{ borderColor: 'rgba(36,120,212,0.7)', color: '#2478d4' }}
+              whileHover={{ borderColor: 'rgba(36,120,212,0.45)', background: 'rgba(255,255,255,0.06)' }}
               style={{
-                padding: isMobile ? '14px 20px' : '18px 32px',
-                border: '1px solid rgba(36,120,212,0.15)',
-                color: 'rgba(240,245,251,0.55)',
-                fontSize: isMobile ? 12 : 13, letterSpacing: '0.1em',
-                fontFamily: 'Outfit, sans-serif', fontWeight: 500,
-                transition: 'all 0.3s ease', cursor: 'default',
+                padding: isMobile ? '20px 16px' : '28px 24px',
+                border: '1px solid rgba(36,120,212,0.12)',
+                background: 'rgba(255,255,255,0.02)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s ease',
+                cursor: 'default',
+                minHeight: isMobile ? 70 : 80,
               }}
-            >{ins}</motion.div>
+            >
+              <img
+                src={ins.logo}
+                alt={ins.name}
+                style={{
+                  maxWidth: isMobile ? 100 : 130,
+                  maxHeight: isMobile ? 36 : 44,
+                  objectFit: 'contain',
+                  filter: (ins as any).noInvert ? 'none' : 'brightness(0) invert(1)',
+                  opacity: (ins as any).noInvert ? 0.85 : 0.6,
+                  transition: 'opacity 0.3s ease',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.opacity = (ins as any).noInvert ? '1' : '0.9'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.opacity = (ins as any).noInvert ? '0.85' : '0.6'; }}
+              />
+            </motion.div>
           ))}
         </div>
       </div>
@@ -872,66 +926,14 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Booking Form */}
           <motion.div
             initial={{ opacity: 0, x: isMobile ? 0 : 30, y: isMobile ? 16 : 0 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: isMobile ? 0 : 0.15 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={e => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {[
-                { placeholder: 'Full Name', type: 'text' },
-                { placeholder: 'Email Address', type: 'email' },
-                { placeholder: 'Phone Number', type: 'tel' },
-              ].map(({ placeholder, type }, i) => (
-                <input
-                  key={i} type={type} placeholder={placeholder}
-                  style={{
-                    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(36,120,212,0.13)',
-                    padding: '15px 18px', color: '#f0f5fb', fontSize: 14,
-                    fontFamily: 'Outfit, sans-serif', outline: 'none', width: '100%',
-                    transition: 'border-color 0.3s',
-                  }}
-                />
-              ))}
-              <select style={{
-                background: 'rgba(13,30,60,0.9)', border: '1px solid rgba(36,120,212,0.13)',
-                padding: '15px 18px', color: 'rgba(240,245,251,0.45)', fontSize: 14,
-                fontFamily: 'Outfit, sans-serif', outline: 'none', width: '100%', appearance: 'none',
-              }}>
-                <option value="">Select your condition</option>
-                {SERVICES.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
-              </select>
-              <textarea
-                placeholder="Brief description of your symptoms or concerns..."
-                rows={isMobile ? 3 : 4}
-                style={{
-                  background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(36,120,212,0.13)',
-                  padding: '15px 18px', color: '#f0f5fb', fontSize: 14,
-                  fontFamily: 'Outfit, sans-serif', outline: 'none', resize: 'vertical', width: '100%',
-                }}
-              />
-              <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', gap: isMobile ? 12 : 20, paddingTop: 4 }}>
-                <button
-                  type="submit"
-                  className="btn-primary"
-                  style={{
-                    background: '#2478d4', color: '#0d1e3c', border: 'none',
-                    padding: '16px 32px', fontSize: 12, fontWeight: 700,
-                    letterSpacing: '0.2em', textTransform: 'uppercase',
-                    fontFamily: 'Outfit, sans-serif', cursor: 'pointer',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 2,
-                    width: isMobile ? '100%' : 'auto',
-                  }}
-                >
-                  Send Enquiry <ArrowRight size={13} />
-                </button>
-                <span style={{ fontSize: 12, color: 'rgba(240,245,251,0.22)', fontFamily: 'Outfit, sans-serif', textAlign: isMobile ? 'center' : 'left' }}>
-                  We reply within 24 hours
-                </span>
-              </div>
-            </form>
+            <BookingForm isMobile={isMobile} />
           </motion.div>
         </div>
       </div>
@@ -957,7 +959,7 @@ const Footer = () => {
         textAlign: isMobile ? 'center' : 'left',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src="/logo.svg" alt="Elite Physio Clinics" style={{ width: 28, height: 28, opacity: 0.7 }} />
+          <img src="/logo.png" alt="Elite Physio Clinics" style={{ width: 28, height: 28, opacity: 0.7 }} />
           <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 13, color: 'rgba(240,245,251,0.35)', letterSpacing: '0.12em' }}>
             ELITE PHYSIO CLINICS
           </span>

@@ -6,4 +6,12 @@ export default defineConfig({
   optimizeDeps: {
     include: ['remotion', '@remotion/player'],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
 })
