@@ -6,60 +6,6 @@ import {
   spring,
 } from 'remotion';
 
-// ── Inline Spine Logo SVG ──────────────────────────────────────────────────
-const SpineLogoSVG: React.FC<{ size: number }> = ({ size }) => (
-  <svg viewBox="0 0 200 200" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="100" cy="100" r="98" fill="#d4e5f5" />
-    <circle cx="100" cy="100" r="82" fill="#163060" />
-    <path
-      d="M100,40 C114,38 132,46 138,58 C143,68 141,82 138,96 C135,108 130,118 128,130 C127,144 127,158 126,165 L74,165 C73,158 73,144 72,130 C70,118 65,108 62,96 C59,82 57,68 62,58 C68,46 86,38 100,40Z"
-      fill="#dce8f5"
-    />
-    <path d="M66,46 C52,58 44,75 48,92 C50,102 57,110 60,120 L67,102 C62,92 60,78 62,66 C64,56 67,50 70,46Z" fill="#2d78c8" />
-    <path d="M70,46 C58,58 52,74 56,90 C58,99 63,107 65,116 L70,100 C66,90 65,77 67,65 C69,56 72,50 74,46Z" fill="#6ab0e8" opacity="0.65" />
-    <path d="M134,46 C148,58 156,75 152,92 C150,102 143,110 140,120 L133,102 C138,92 140,78 138,66 C136,56 133,50 130,46Z" fill="#2d78c8" />
-    <path d="M130,46 C142,58 148,74 144,90 C142,99 137,107 135,116 L130,100 C134,90 135,77 133,65 C131,56 128,50 126,46Z" fill="#6ab0e8" opacity="0.65" />
-    <circle cx="101" cy="50"  r="2.2" fill="#1a55be" />
-    <circle cx="101" cy="57"  r="3"   fill="#1850b8" />
-    <circle cx="101" cy="65"  r="4.2" fill="#1545b0" />
-    <circle cx="101" cy="74"  r="5.8" fill="#1240a8" />
-    <circle cx="101" cy="84"  r="7"   fill="#0f38a0" />
-    <circle cx="101" cy="95"  r="7.8" fill="#0d35a0" />
-    <circle cx="101" cy="106" r="7.8" fill="#0d35a0" />
-    <circle cx="100" cy="117" r="6.5" fill="#1040a8" />
-    <circle cx="100" cy="127" r="5"   fill="#1545b0" />
-    <circle cx="100" cy="136" r="3.8" fill="#1850b8" />
-    <circle cx="100" cy="144" r="2.8" fill="#1a55be" />
-    <circle cx="100" cy="151" r="2"   fill="#2060c8" />
-    <circle cx="100" cy="157" r="1.5" fill="#2868d0" />
-    <circle cx="100" cy="162" r="1.1" fill="#3070d8" />
-  </svg>
-);
-
-// ── Floating Spine Logo ────────────────────────────────────────────────────
-const FloatingSpineLogo: React.FC<{
-  x: string; y: string; size: number; delay: number; rotDir?: 1 | -1; maxOpacity?: number;
-}> = ({ x, y, size, delay, rotDir = 1, maxOpacity = 0.18 }) => {
-  const frame = useCurrentFrame();
-  const scale = spring({ frame: frame - delay, fps: 30, config: { damping: 120, stiffness: 35 } });
-  const floatY = Math.sin(frame / 95 + delay * 0.1) * 7;
-  const rotate = rotDir * Math.sin(frame / 160 + delay * 0.05) * 5;
-  const opacity = interpolate(frame, [delay, delay + 35], [0, maxOpacity], {
-    extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
-  });
-
-  return (
-    <div style={{
-      position: 'absolute', left: x, top: y,
-      transform: `translate(-50%, -50%) scale(${scale}) translateY(${floatY}px) rotate(${rotate}deg)`,
-      opacity,
-      filter: 'drop-shadow(0 0 20px rgba(36,120,212,0.35))',
-    }}>
-      <SpineLogoSVG size={size} />
-    </div>
-  );
-};
-
 // ── Animated Vertebrae Column ──────────────────────────────────────────────
 const VerticalSpineDecor: React.FC<{ x: string; yStart: string; delay?: number }> = ({ x, yStart, delay = 30 }) => {
   const frame = useCurrentFrame();
@@ -300,12 +246,6 @@ export const HeroComposition: React.FC = () => {
       <GlowOrb x="85%"  y="70%"  size={400} delay={20} color="rgba(36,120,212,0.13)" />
       <GlowOrb x="80%"  y="18%"  size={280} delay={5}  color="rgba(70,150,220,0.1)" />
       <GlowOrb x="20%"  y="80%"  size={300} delay={35} color="rgba(36,80,180,0.12)" />
-
-      {/* Floating spine logos (corners + accents) */}
-      <FloatingSpineLogo x="9%"  y="18%"  size={150} delay={18}  rotDir={1}  maxOpacity={0.2} />
-      <FloatingSpineLogo x="91%" y="22%"  size={190} delay={10}  rotDir={-1} maxOpacity={0.22} />
-      <FloatingSpineLogo x="88%" y="78%"  size={130} delay={25}  rotDir={1}  maxOpacity={0.16} />
-      <FloatingSpineLogo x="11%" y="82%"  size={110} delay={40}  rotDir={-1} maxOpacity={0.14} />
 
       {/* Body silhouette outlines */}
       <BodyOutline x="5%"   y="50%"  size={160} delay={22} />
