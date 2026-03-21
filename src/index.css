@@ -10,14 +10,14 @@ html {
 
 body {
   overflow-x: hidden;
-  background: #0d1e3c;
+  background: #0a1f13;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0d1e3c; }
-::-webkit-scrollbar-thumb { background: rgba(36, 120, 212, 0.35); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(36, 120, 212, 0.6); }
+::-webkit-scrollbar-track { background: #0a1f13; }
+::-webkit-scrollbar-thumb { background: rgba(201, 160, 66, 0.35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(201, 160, 66, 0.6); }
 
 /* Grain texture overlay */
 body::after {
@@ -60,6 +60,11 @@ body::after {
   100% { transform: translateY(0px); }
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* Nav hover link */
 .nav-link {
   position: relative;
@@ -71,7 +76,7 @@ body::after {
   left: 0;
   width: 0;
   height: 1px;
-  background: #2478d4;
+  background: #c9a042;
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }
@@ -92,9 +97,9 @@ body::after {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-/* Blue shimmer text */
+/* Shimmer text with subtle blue accent */
 .shimmer-text {
-  background: linear-gradient(90deg, #2478d4 0%, #5ba3e8 25%, #2478d4 50%, #f0f5fb 75%, #2478d4 100%);
+  background: linear-gradient(90deg, #c9a042 0%, #e8c96d 20%, #c9a042 40%, #a8c4e0 55%, #faf6ef 70%, #c9a042 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -105,23 +110,24 @@ body::after {
 /* Input focus styles */
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #2478d4 !important;
-  box-shadow: 0 0 0 1px rgba(36, 120, 212, 0.2);
+  border-color: #c9a042 !important;
+  box-shadow: 0 0 0 1px rgba(201, 160, 66, 0.2), 0 0 12px rgba(45, 120, 200, 0.08);
 }
 
 /* Button hover */
 .btn-primary:hover {
-  background: #5ba3e8 !important;
+  background: #e8c96d !important;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(36, 120, 212, 0.3);
+  box-shadow: 0 8px 24px rgba(201, 160, 66, 0.3);
 }
 .btn-primary {
   transition: all 0.25s ease;
 }
 
 .btn-ghost:hover {
-  background: rgba(240, 245, 251, 0.08) !important;
-  border-color: rgba(240, 245, 251, 0.6) !important;
+  background: rgba(250, 246, 239, 0.08) !important;
+  border-color: rgba(250, 246, 239, 0.6) !important;
+  box-shadow: 0 0 20px rgba(45, 120, 200, 0.1);
 }
 .btn-ghost {
   transition: all 0.25s ease;

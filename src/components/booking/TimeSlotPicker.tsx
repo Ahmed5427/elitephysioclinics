@@ -60,7 +60,7 @@ export const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({ date, selectedTi
         fontSize: 11,
         fontFamily: 'Outfit, sans-serif',
         fontWeight: 600,
-        color: 'rgba(36,120,212,0.7)',
+        color: 'rgba(201,160,66,0.7)',
         letterSpacing: '0.2em',
         textTransform: 'uppercase' as const,
         marginBottom: 14,
@@ -73,7 +73,7 @@ export const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({ date, selectedTi
           textAlign: 'center',
           padding: '24px 0',
           fontSize: 13,
-          color: 'rgba(240,245,251,0.4)',
+          color: 'rgba(250,246,239,0.4)',
           fontFamily: 'Outfit, sans-serif',
         }}>
           Loading available times...
@@ -100,18 +100,18 @@ export const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({ date, selectedTi
                 style={{
                   padding: '10px 8px',
                   border: isSelected
-                    ? '1px solid #2478d4'
+                    ? '1px solid #c9a042'
                     : '1px solid rgba(255,255,255,0.06)',
                   background: isSelected
-                    ? 'rgba(36,120,212,0.15)'
+                    ? 'rgba(201,160,66,0.15)'
                     : slot.available
                       ? 'rgba(255,255,255,0.02)'
                       : 'rgba(255,255,255,0.01)',
                   color: !slot.available
-                    ? 'rgba(240,245,251,0.2)'
+                    ? 'rgba(250,246,239,0.2)'
                     : isSelected
-                      ? '#2478d4'
-                      : 'rgba(240,245,251,0.7)',
+                      ? '#c9a042'
+                      : 'rgba(250,246,239,0.7)',
                   fontSize: 12,
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: isSelected ? 600 : 400,
@@ -130,7 +130,7 @@ export const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({ date, selectedTi
       )}
 
       {!loading && !error && slots.length === 0 && date && (
-        <p style={{ fontSize: 13, color: 'rgba(240,245,251,0.35)', fontFamily: 'Outfit, sans-serif' }}>
+        <p style={{ fontSize: 13, color: 'rgba(250,246,239,0.35)', fontFamily: 'Outfit, sans-serif' }}>
           No time slots available for this date.
         </p>
       )}

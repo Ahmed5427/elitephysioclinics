@@ -14,9 +14,9 @@ interface PatientDetailsProps {
 const inputStyle = (hasError: boolean) => ({
   width: '100%',
   background: 'rgba(255,255,255,0.03)',
-  border: `1px solid ${hasError ? 'rgba(220,60,60,0.6)' : 'rgba(36,120,212,0.13)'}`,
+  border: `1px solid ${hasError ? 'rgba(220,60,60,0.6)' : 'rgba(201,160,66,0.13)'}`,
   padding: '15px 18px',
-  color: '#f0f5fb',
+  color: '#faf6ef',
   fontSize: 14,
   fontFamily: 'Outfit, sans-serif',
   outline: 'none',
@@ -35,15 +35,15 @@ export const PatientDetails: React.FC<PatientDetailsProps> = ({ name, phone, ema
         fontFamily: 'Cormorant Garamond, serif',
         fontSize: isMobile ? 26 : 32,
         fontWeight: 300,
-        color: '#f0f5fb',
+        color: '#faf6ef',
         marginBottom: 8,
         lineHeight: 1.1,
       }}>
-        Your <em style={{ color: '#2478d4' }}>Details</em>
+        Your <em style={{ color: '#c9a042' }}>Details</em>
       </h3>
       <p style={{
         fontSize: 13,
-        color: 'rgba(240,245,251,0.45)',
+        color: 'rgba(250,246,239,0.45)',
         fontFamily: 'Outfit, sans-serif',
         fontWeight: 300,
         marginBottom: 24,
@@ -116,7 +116,7 @@ export const PatientDetails: React.FC<PatientDetailsProps> = ({ name, phone, ema
               onChange={e => onChange('consent', e.target.checked)}
               style={{
                 marginTop: 3,
-                accentColor: '#2478d4',
+                accentColor: '#c9a042',
                 width: 16,
                 height: 16,
                 flexShrink: 0,
@@ -124,7 +124,7 @@ export const PatientDetails: React.FC<PatientDetailsProps> = ({ name, phone, ema
             />
             <span style={{
               fontSize: 12,
-              color: 'rgba(240,245,251,0.55)',
+              color: 'rgba(250,246,239,0.55)',
               fontFamily: 'Outfit, sans-serif',
               lineHeight: 1.6,
             }}>
@@ -132,7 +132,7 @@ export const PatientDetails: React.FC<PatientDetailsProps> = ({ name, phone, ema
               <a
                 href="#"
                 onClick={e => e.preventDefault()}
-                style={{ color: '#2478d4', textDecoration: 'underline' }}
+                style={{ color: '#c9a042', textDecoration: 'underline' }}
               >
                 Privacy Policy
               </a>

@@ -40,7 +40,7 @@ const VerticalSpineDecor: React.FC<{ x: string; yStart: string; delay?: number }
             cx={d.cx}
             cy={d.cy}
             r={d.r}
-            fill={`rgba(36,120,212,${0.55 + d.wave * 0.25})`}
+            fill={`rgba(201,160,66,${0.55 + d.wave * 0.25})`}
             style={{ filter: `blur(${d.r > 6 ? 0.5 : 0}px)` }}
           />
         ))}
@@ -67,30 +67,30 @@ const BodyOutline: React.FC<{ x: string; y: string; size: number; delay: number;
       position: 'absolute', left: x, top: y,
       transform: `translate(-50%, -50%) scale(${scale}) translate(${floatX}px, ${floatY}px) ${flip ? 'scaleX(-1)' : ''}`,
       opacity,
-      filter: 'drop-shadow(0 0 12px rgba(36,120,212,0.3))',
+      filter: 'drop-shadow(0 0 12px rgba(201,160,66,0.3))',
     }}>
       <svg width={s} height={s * 1.55} viewBox="0 0 200 310">
         {/* Outer ring */}
-        <circle cx="100" cy="100" r="96" fill="none" stroke="#2d78c8" strokeWidth="1.5" strokeDasharray="6 10" />
+        <circle cx="100" cy="100" r="96" fill="none" stroke="#2d6a5a" strokeWidth="1.5" strokeDasharray="6 10" />
         {/* Body outline */}
         <path
           d="M100,40 C114,38 132,46 138,58 C143,68 141,82 138,96 C135,108 130,118 128,130 C127,144 127,158 126,165 L74,165 C73,158 73,144 72,130 C70,118 65,108 62,96 C59,82 57,68 62,58 C68,46 86,38 100,40Z"
-          fill="none" stroke="#2d78c8" strokeWidth="2"
+          fill="none" stroke="#2d6a5a" strokeWidth="2"
         />
         {/* Left wing outline */}
         <path
           d="M66,46 C52,58 44,75 48,92 C50,102 57,110 60,120"
-          fill="none" stroke="#4a90d9" strokeWidth="1.5" strokeLinecap="round"
+          fill="none" stroke="#4ab098" strokeWidth="1.5" strokeLinecap="round"
         />
         {/* Right wing outline */}
         <path
           d="M134,46 C148,58 156,75 152,92 C150,102 143,110 140,120"
-          fill="none" stroke="#4a90d9" strokeWidth="1.5" strokeLinecap="round"
+          fill="none" stroke="#4ab098" strokeWidth="1.5" strokeLinecap="round"
         />
         {/* Spine dots */}
         {[50, 60, 70, 82, 94, 106, 117, 128, 137, 145, 152, 158].map((yy, i) => {
           const r = i < 2 ? 2 : i < 4 ? 4.5 : i < 8 ? 6 : 3.5;
-          return <circle key={i} cx="101" cy={yy} r={r} fill="#2478d4" opacity="0.7" />;
+          return <circle key={i} cx="101" cy={yy} r={r} fill="#c9a042" opacity="0.7" />;
         })}
       </svg>
     </div>
@@ -118,9 +118,9 @@ const Particle: React.FC<{ seed: number }> = ({ seed }) => {
     <div style={{
       position: 'absolute', left: `${x}%`, top: `${y}%`,
       width: size, height: size, borderRadius: '50%',
-      background: isBlue ? '#2478d4' : '#6ab0d9',
+      background: isBlue ? '#c9a042' : '#6cc0a5',
       opacity,
-      boxShadow: `0 0 ${size * 3}px ${isBlue ? 'rgba(36,120,212,0.5)' : 'rgba(106,176,217,0.4)'}`,
+      boxShadow: `0 0 ${size * 3}px ${isBlue ? 'rgba(201,160,66,0.5)' : 'rgba(108,192,165,0.4)'}`,
     }} />
   );
 };
@@ -162,8 +162,8 @@ const SweepLine: React.FC<{ startFrame: number; fromRight?: boolean; top: string
       right: fromRight ? 0 : 'auto',
       width: `${progress * 100}%`, height: 1,
       background: fromRight
-        ? 'linear-gradient(to left, transparent 0%, rgba(36,120,212,0.8) 60%, rgba(36,120,212,0.3) 100%)'
-        : 'linear-gradient(to right, transparent 0%, rgba(36,120,212,0.8) 60%, rgba(36,120,212,0.3) 100%)',
+        ? 'linear-gradient(to left, transparent 0%, rgba(201,160,66,0.8) 60%, rgba(201,160,66,0.3) 100%)'
+        : 'linear-gradient(to right, transparent 0%, rgba(201,160,66,0.8) 60%, rgba(201,160,66,0.3) 100%)',
       opacity: fadeOut * opacity,
     }} />
   );
@@ -182,8 +182,8 @@ const DecorRing: React.FC<{ size: number; x: string; y: string; delay: number }>
       opacity: 0.18,
     }}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-        <circle cx={size / 2} cy={size / 2} r={size / 2 - 1} fill="none" stroke="#2478d4" strokeWidth="0.5" strokeDasharray="4 8" />
-        <circle cx={size / 2} cy={size / 2} r={size / 3} fill="none" stroke="rgba(36,120,212,0.4)" strokeWidth="0.5" />
+        <circle cx={size / 2} cy={size / 2} r={size / 2 - 1} fill="none" stroke="#c9a042" strokeWidth="0.5" strokeDasharray="4 8" />
+        <circle cx={size / 2} cy={size / 2} r={size / 3} fill="none" stroke="rgba(201,160,66,0.4)" strokeWidth="0.5" />
       </svg>
     </div>
   );
@@ -191,7 +191,7 @@ const DecorRing: React.FC<{ size: number; x: string; y: string; delay: number }>
 
 // ── Glowing Orb ────────────────────────────────────────────────────────────
 const GlowOrb: React.FC<{ x: string; y: string; size: number; delay: number; color?: string }> = ({
-  x, y, size, delay, color = 'rgba(36,120,212,0.18)',
+  x, y, size, delay, color = 'rgba(201,160,66,0.18)',
 }) => {
   const frame = useCurrentFrame();
   const pulse = 0.8 + Math.sin(frame / 55 + delay) * 0.2;
@@ -223,29 +223,29 @@ export const HeroComposition: React.FC = () => {
 
   return (
     <AbsoluteFill style={{
-      background: `linear-gradient(${gradAngle}deg, #06091a 0%, #0d2547 35%, #1a3d6b 65%, #0d1e3c 100%)`,
+      background: `linear-gradient(${gradAngle}deg, #060f08 0%, #0d2518 35%, #1a3d2b 65%, #0a1f13 100%)`,
       opacity: fadeIn,
       overflow: 'hidden',
     }}>
       {/* Aurora bands */}
-      <AuroraBand seed={0.15} color="rgba(36,80,160,0.6)" />
-      <AuroraBand seed={0.48} color="rgba(91,163,232,0.3)" />
-      <AuroraBand seed={0.75} color="rgba(36,80,160,0.5)" />
+      <AuroraBand seed={0.15} color="rgba(45,106,90,0.6)" />
+      <AuroraBand seed={0.48} color="rgba(108,198,165,0.3)" />
+      <AuroraBand seed={0.75} color="rgba(45,106,90,0.5)" />
 
       {/* Large radial glow center */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: `translate(-50%, -50%) scale(${pulseScale})`,
         width: 800, height: 800, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(26,61,107,0.4) 0%, rgba(13,30,60,0) 70%)',
+        background: 'radial-gradient(circle, rgba(26,61,43,0.4) 0%, rgba(10,31,19,0) 70%)',
         opacity: pulseOpacity * 5,
       }} />
 
       {/* Glowing orbs */}
-      <GlowOrb x="15%"  y="25%"  size={350} delay={10} color="rgba(36,90,200,0.15)" />
-      <GlowOrb x="85%"  y="70%"  size={400} delay={20} color="rgba(36,120,212,0.13)" />
-      <GlowOrb x="80%"  y="18%"  size={280} delay={5}  color="rgba(70,150,220,0.1)" />
-      <GlowOrb x="20%"  y="80%"  size={300} delay={35} color="rgba(36,80,180,0.12)" />
+      <GlowOrb x="15%"  y="25%"  size={350} delay={10} color="rgba(45,106,90,0.15)" />
+      <GlowOrb x="85%"  y="70%"  size={400} delay={20} color="rgba(201,160,66,0.13)" />
+      <GlowOrb x="80%"  y="18%"  size={280} delay={5}  color="rgba(74,183,148,0.1)" />
+      <GlowOrb x="20%"  y="80%"  size={300} delay={35} color="rgba(45,106,90,0.12)" />
 
       {/* Body silhouette outlines */}
       <BodyOutline x="5%"   y="50%"  size={160} delay={22} />
@@ -287,10 +287,10 @@ export const HeroComposition: React.FC = () => {
             top: corner.top, bottom: corner.bottom,
             left: corner.left, right: corner.right,
             width: 50, height: 50,
-            borderTop:    corner.bTop    ? '1px solid rgba(36,120,212,0.45)' : 'none',
-            borderBottom: corner.bBottom ? '1px solid rgba(36,120,212,0.45)' : 'none',
-            borderLeft:   corner.bLeft   ? '1px solid rgba(36,120,212,0.45)' : 'none',
-            borderRight:  corner.bRight  ? '1px solid rgba(36,120,212,0.45)' : 'none',
+            borderTop:    corner.bTop    ? '1px solid rgba(201,160,66,0.45)' : 'none',
+            borderBottom: corner.bBottom ? '1px solid rgba(201,160,66,0.45)' : 'none',
+            borderLeft:   corner.bLeft   ? '1px solid rgba(201,160,66,0.45)' : 'none',
+            borderRight:  corner.bRight  ? '1px solid rgba(201,160,66,0.45)' : 'none',
             opacity,
           }} />
         );
@@ -300,7 +300,7 @@ export const HeroComposition: React.FC = () => {
       {[15, 30, 50, 70, 85].map((top, i) => (
         <div key={i} style={{
           position: 'absolute', left: 0, right: 0, top: `${top}%`,
-          height: 1, background: 'rgba(36,120,212,0.04)',
+          height: 1, background: 'rgba(201,160,66,0.04)',
         }} />
       ))}
     </AbsoluteFill>

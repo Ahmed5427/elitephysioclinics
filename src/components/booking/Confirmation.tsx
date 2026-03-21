@@ -55,29 +55,29 @@ export const Confirmation: React.FC<ConfirmationProps> = ({ booking, onBookAnoth
           width: 64,
           height: 64,
           borderRadius: '50%',
-          background: 'rgba(36,120,212,0.12)',
-          border: '2px solid rgba(36,120,212,0.4)',
+          background: 'rgba(201,160,66,0.12)',
+          border: '2px solid rgba(201,160,66,0.4)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 24px',
         }}
       >
-        <CheckCircle size={32} color="#2478d4" />
+        <CheckCircle size={32} color="#c9a042" />
       </motion.div>
 
       <h3 style={{
         fontFamily: 'Cormorant Garamond, serif',
         fontSize: isMobile ? 28 : 36,
         fontWeight: 300,
-        color: '#f0f5fb',
+        color: '#faf6ef',
         marginBottom: 8,
       }}>
-        Booking <em style={{ color: '#2478d4' }}>Confirmed!</em>
+        Booking <em style={{ color: '#c9a042' }}>Confirmed!</em>
       </h3>
       <p style={{
         fontSize: 13,
-        color: 'rgba(240,245,251,0.45)',
+        color: 'rgba(250,246,239,0.45)',
         fontFamily: 'Outfit, sans-serif',
         fontWeight: 300,
         marginBottom: 32,
@@ -89,7 +89,7 @@ export const Confirmation: React.FC<ConfirmationProps> = ({ booking, onBookAnoth
       {/* Details card */}
       <div style={{
         background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(36,120,212,0.13)',
+        border: '1px solid rgba(201,160,66,0.13)',
         padding: isMobile ? '20px' : '28px 32px',
         textAlign: 'left',
         marginBottom: 28,
@@ -103,12 +103,12 @@ export const Confirmation: React.FC<ConfirmationProps> = ({ booking, onBookAnoth
               justifyContent: 'space-between',
               gap: isMobile ? 2 : 8,
               padding: '10px 0',
-              borderBottom: i < details.length - 1 ? '1px solid rgba(36,120,212,0.08)' : 'none',
+              borderBottom: i < details.length - 1 ? '1px solid rgba(201,160,66,0.08)' : 'none',
             }}
           >
             <span style={{
               fontSize: 11,
-              color: 'rgba(36,120,212,0.6)',
+              color: 'rgba(201,160,66,0.6)',
               fontFamily: 'Outfit, sans-serif',
               fontWeight: 500,
               letterSpacing: '0.12em',
@@ -118,7 +118,7 @@ export const Confirmation: React.FC<ConfirmationProps> = ({ booking, onBookAnoth
             </span>
             <span style={{
               fontSize: 13,
-              color: label === 'Booking Reference' ? '#2478d4' : 'rgba(240,245,251,0.75)',
+              color: label === 'Booking Reference' ? '#c9a042' : 'rgba(250,246,239,0.75)',
               fontFamily: label === 'Booking Reference' ? 'monospace' : 'Outfit, sans-serif',
               fontWeight: label === 'Booking Reference' ? 700 : 400,
               letterSpacing: label === 'Booking Reference' ? '0.08em' : 0,
@@ -134,8 +134,8 @@ export const Confirmation: React.FC<ConfirmationProps> = ({ booking, onBookAnoth
         className="btn-primary"
         style={{
           width: isMobile ? '100%' : 'auto',
-          background: '#2478d4',
-          color: '#0d1e3c',
+          background: '#c9a042',
+          color: '#0a1f13',
           border: 'none',
           padding: '14px 32px',
           fontSize: 12,

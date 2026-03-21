@@ -33,15 +33,15 @@ export const ConditionSelect: React.FC<ConditionSelectProps> = ({ value, onChang
         fontFamily: 'Cormorant Garamond, serif',
         fontSize: isMobile ? 26 : 32,
         fontWeight: 300,
-        color: '#f0f5fb',
+        color: '#faf6ef',
         marginBottom: 8,
         lineHeight: 1.1,
       }}>
-        Select Your <em style={{ color: '#2478d4' }}>Condition</em>
+        Select Your <em style={{ color: '#c9a042' }}>Condition</em>
       </h3>
       <p style={{
         fontSize: 13,
-        color: 'rgba(240,245,251,0.45)',
+        color: 'rgba(250,246,239,0.45)',
         fontFamily: 'Outfit, sans-serif',
         fontWeight: 300,
         marginBottom: 24,
@@ -57,9 +57,9 @@ export const ConditionSelect: React.FC<ConditionSelectProps> = ({ value, onChang
           style={{
             width: '100%',
             background: 'rgba(255,255,255,0.03)',
-            border: `1px solid ${error ? 'rgba(220,60,60,0.6)' : 'rgba(36,120,212,0.13)'}`,
+            border: `1px solid ${error ? 'rgba(220,60,60,0.6)' : 'rgba(201,160,66,0.13)'}`,
             padding: '15px 44px 15px 18px',
-            color: value ? '#f0f5fb' : 'rgba(240,245,251,0.45)',
+            color: value ? '#faf6ef' : 'rgba(250,246,239,0.45)',
             fontSize: 14,
             fontFamily: 'Outfit, sans-serif',
             outline: 'none',
@@ -68,16 +68,16 @@ export const ConditionSelect: React.FC<ConditionSelectProps> = ({ value, onChang
             transition: 'border-color 0.3s',
           }}
         >
-          <option value="" style={{ background: '#0d1e3c' }}>Select your condition</option>
+          <option value="" style={{ background: '#0a1f13' }}>Select your condition</option>
           {CONDITIONS.map(c => (
-            <option key={c.slug} value={c.slug} style={{ background: '#0d1e3c' }}>
+            <option key={c.slug} value={c.slug} style={{ background: '#0a1f13' }}>
               {c.title}
             </option>
           ))}
         </select>
         <ChevronDown
           size={16}
-          color="rgba(240,245,251,0.35)"
+          color="rgba(250,246,239,0.35)"
           style={{ position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
         />
       </div>
@@ -97,8 +97,8 @@ export const ConditionSelect: React.FC<ConditionSelectProps> = ({ value, onChang
         className="btn-primary"
         style={{
           width: isMobile ? '100%' : 'auto',
-          background: '#2478d4',
-          color: '#0d1e3c',
+          background: '#c9a042',
+          color: '#0a1f13',
           border: 'none',
           padding: '14px 32px',
           fontSize: 12,

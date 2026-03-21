@@ -160,15 +160,15 @@ export const BookingForm: React.FC<BookingFormProps> = ({ isMobile }) => {
               fontFamily: 'Cormorant Garamond, serif',
               fontSize: isMobile ? 26 : 32,
               fontWeight: 300,
-              color: '#f0f5fb',
+              color: '#faf6ef',
               marginBottom: 8,
               lineHeight: 1.1,
             }}>
-              Choose <em style={{ color: '#2478d4' }}>Date & Time</em>
+              Choose <em style={{ color: '#c9a042' }}>Date & Time</em>
             </h3>
             <p style={{
               fontSize: 13,
-              color: 'rgba(240,245,251,0.45)',
+              color: 'rgba(250,246,239,0.45)',
               fontFamily: 'Outfit, sans-serif',
               fontWeight: 300,
               marginBottom: 24,
@@ -210,8 +210,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({ isMobile }) => {
                 className="btn-ghost"
                 style={{
                   background: 'transparent',
-                  color: '#f0f5fb',
-                  border: '1px solid rgba(240,245,251,0.2)',
+                  color: '#faf6ef',
+                  border: '1px solid rgba(250,246,239,0.2)',
                   padding: '13px 24px',
                   fontSize: 12,
                   fontWeight: 500,
@@ -233,8 +233,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({ isMobile }) => {
                 className="btn-primary"
                 style={{
                   flex: isMobile ? undefined : 1,
-                  background: '#2478d4',
-                  color: '#0d1e3c',
+                  background: '#c9a042',
+                  color: '#0a1f13',
                   border: 'none',
                   padding: '14px 32px',
                   fontSize: 12,
@@ -306,8 +306,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({ isMobile }) => {
                 className="btn-ghost"
                 style={{
                   background: 'transparent',
-                  color: '#f0f5fb',
-                  border: '1px solid rgba(240,245,251,0.2)',
+                  color: '#faf6ef',
+                  border: '1px solid rgba(250,246,239,0.2)',
                   padding: '13px 24px',
                   fontSize: 12,
                   fontWeight: 500,
@@ -331,8 +331,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({ isMobile }) => {
                 className="btn-primary"
                 style={{
                   flex: isMobile ? undefined : 1,
-                  background: submitting ? 'rgba(36,120,212,0.5)' : '#2478d4',
-                  color: '#0d1e3c',
+                  background: submitting ? 'rgba(36,120,212,0.5)' : '#c9a042',
+                  color: '#0a1f13',
                   border: 'none',
                   padding: '14px 32px',
                   fontSize: 12,

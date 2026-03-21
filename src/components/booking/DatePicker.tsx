@@ -65,7 +65,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({ selectedDate, onSelect, 
         fontSize: 11,
         fontFamily: 'Outfit, sans-serif',
         fontWeight: 600,
-        color: 'rgba(36,120,212,0.7)',
+        color: 'rgba(201,160,66,0.7)',
         letterSpacing: '0.2em',
         textTransform: 'uppercase' as const,
         marginBottom: 14,
@@ -86,7 +86,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({ selectedDate, onSelect, 
             fontSize: 10,
             fontFamily: 'Outfit, sans-serif',
             fontWeight: 500,
-            color: 'rgba(240,245,251,0.3)',
+            color: 'rgba(250,246,239,0.3)',
             letterSpacing: '0.1em',
             padding: '6px 0',
           }}>
@@ -119,18 +119,18 @@ export const DatePicker: React.FC<DatePickerProps> = ({ selectedDate, onSelect, 
                   style={{
                     padding: isMobile ? '8px 0' : '10px 0',
                     border: isSelected
-                      ? '1px solid #2478d4'
+                      ? '1px solid #c9a042'
                       : isToday
-                        ? '1px solid rgba(36,120,212,0.3)'
+                        ? '1px solid rgba(201,160,66,0.3)'
                         : '1px solid rgba(255,255,255,0.04)',
                     background: isSelected
-                      ? 'rgba(36,120,212,0.15)'
+                      ? 'rgba(201,160,66,0.15)'
                       : 'rgba(255,255,255,0.02)',
                     color: isDisabled
-                      ? 'rgba(240,245,251,0.15)'
+                      ? 'rgba(250,246,239,0.15)'
                       : isSelected
-                        ? '#2478d4'
-                        : '#f0f5fb',
+                        ? '#c9a042'
+                        : '#faf6ef',
                     fontSize: isMobile ? 12 : 13,
                     fontFamily: 'Outfit, sans-serif',
                     fontWeight: isSelected ? 600 : 400,
